@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fananrak <fananrak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fanantenana <fanantenana@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 10:04:49 by fananrak          #+#    #+#             */
-/*   Updated: 2026/03/30 14:06:46 by fananrak         ###   ########.fr       */
+/*   Updated: 2026/03/30 18:11:49 by fanantenana      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdlib.h>
 
 char    *get_next_line(int  fd);
 

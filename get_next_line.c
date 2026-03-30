@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fananrak <fananrak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fanantenana <fanantenana@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 10:04:42 by fananrak          #+#    #+#             */
-/*   Updated: 2026/03/30 14:20:22 by fananrak         ###   ########.fr       */
+/*   Updated: 2026/03/30 19:53:40 by fanantenana      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,43 @@
 
 char    *get_next_line(int  fd)
 {
-    static char *text;
-    char        *res;
-
+    static char    *leftover;
+    char           *line;
+    
     if (fd < 0 || BUFFER_SIZE <= 0)
+        return (NULL);    
+    leftover = read_and_stash(fd, leftover);
+    line =  extract_line(leftover);
+    leftover = update_leftover(leftover);
+    return (line);
+}
+
+char    *read_and_stash(int fd, char *stash)
+{    
+    char    *buffer;
+    ssize_t nbytes;
+    
+    buffer = malloc(BUFFER_SIZE + 1);
+    if (!buffer)
         return (NULL);
-
-    text = read_and_stash(fd, text);
-    return (res);
+    nbytes = 1;
+    while (nbytes > 0)
+    {
+        nbytes = read(fd, buffer, BUFFER_SIZE);
+        buffer[nbytes] = '\0';
+        stash = ft_strjoin(stash, buffer);
+        if (ft_strchr(stash, '\n'))
+            break ;
+        
+    }
+    free(buffer);
+    return (stash);
 }
-
-
-/**
- * my step:
- * 1 - read from file and stash in
- * 2 - excrat the line
- * 3 - update the leftover
- */
-
-char    *read_and_stash(int fd, char *text)
+char    *extract_line(char *leftover)
 {
-    // read() and add the content from the file to text
+    // to be implemented    
 }
-
-void stash_file_buffer();
+char    *update_leftover(char * leftover)
+{    
+    // to be implemented
+}
