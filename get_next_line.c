@@ -6,7 +6,7 @@
 /*   By: fanantenana <fanantenana@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 10:04:42 by fananrak          #+#    #+#             */
-/*   Updated: 2026/03/30 21:43:04 by fanantenana      ###   ########.fr       */
+/*   Updated: 2026/03/30 22:07:00 by fanantenana      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ char    *extract_line(char *stash)
     
     if (!stash)
         return (NULL); 
+    i = 0;
     while (stash[i] && stash[i] != '\n') 
         i++;
     if (stash[i] == '\n')
@@ -61,7 +62,17 @@ char    *extract_line(char *stash)
         line = ft_substr(stash, 0, i);
     return (line);
 }
-char    *update_leftover(char * leftover)
+char    *update_leftover(char * stash)
 {    
-    // to be implemented
+    char    *leftover;
+    ssize_t i;
+    ssize_t j;
+    
+    if (!stash)
+        return (NULL);
+    i = 0;
+    while (stash[i] && stash[i] != '\n') 
+        i++;
+    leftover = ft_substr(stash, i + 1, ft_strlen(stash) - i);
+    return (leftover);
 }
