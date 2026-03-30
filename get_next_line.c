@@ -6,7 +6,7 @@
 /*   By: fananrak <fananrak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 10:04:42 by fananrak          #+#    #+#             */
-/*   Updated: 2026/03/30 14:01:50 by fananrak         ###   ########.fr       */
+/*   Updated: 2026/03/30 14:20:22 by fananrak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,19 @@ char    *get_next_line(int  fd)
     if (fd < 0 || BUFFER_SIZE <= 0)
         return (NULL);
 
-    text = read_from_file(fd, text);
+    text = read_and_stash(fd, text);
     return (res);
 }
 
-char    *read_from_file(int fd, char *text)
+
+/**
+ * my step:
+ * 1 - read from file and stash in
+ * 2 - excrat the line
+ * 3 - update the leftover
+ */
+
+char    *read_and_stash(int fd, char *text)
 {
     // read() and add the content from the file to text
 }
