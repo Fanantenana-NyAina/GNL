@@ -6,24 +6,11 @@
 /*   By: fananrak <fananrak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 10:04:42 by fananrak          #+#    #+#             */
-/*   Updated: 2026/03/31 10:45:54 by fananrak         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:32:18 by fananrak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char    *get_next_line(int  fd)
-{
-    static char    *leftover;
-    char           *line;
-    
-    if (fd < 0 || BUFFER_SIZE <= 0)
-        return (NULL);    
-    leftover = read_and_stash(fd, leftover);
-    line =  extract_line(leftover);
-    leftover = update_leftover(leftover);
-    return (line);
-}
 
 static char *read_and_stash(int fd, char *stash)
 {    
@@ -68,7 +55,6 @@ static char *update_leftover(char * stash)
 {    
     char    *leftover;
     ssize_t i;
-    ssize_t j;
     
     if (!stash)
         return (NULL);
@@ -77,4 +63,17 @@ static char *update_leftover(char * stash)
         i++;
     leftover = ft_substr(stash, i + 1, ft_strlen(stash) - i);
     return (leftover);
+}
+
+char    *get_next_line(int  fd)
+{
+    static char    *leftover;
+    char           *line;
+    
+    if (fd < 0 || BUFFER_SIZE <= 0)
+        return (NULL);    
+    leftover = read_and_stash(fd, leftover);
+    line =  extract_line(leftover);
+    leftover = update_leftover(leftover);
+    return (line);
 }

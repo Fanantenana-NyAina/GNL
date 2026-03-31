@@ -6,10 +6,10 @@ int main()
 
     char    *res = get_next_line(fd);
 
-    while (res)
+    while (*res)
     {
         printf("%s", res);
     }
-
+    close(fd);
     return 0;
 }
