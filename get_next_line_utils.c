@@ -6,11 +6,75 @@
 /*   By: fananrak <fananrak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 10:04:47 by fananrak          #+#    #+#             */
-/*   Updated: 2026/03/31 10:42:51 by fananrak         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:15:09 by fananrak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
+
+	dst_len = 0;
+	src_len = 0;
+	while (dst_len < size && dst[dst_len])
+		dst_len++;
+	while (src[src_len])
+		src_len++;
+	if (dst_len == size)
+		return (size + src_len);
+	i = 0;
+	while (src[i] && dst_len + i + 1 < size)
+	{
+		dst[dst_len + i] = src[i];
+		i++;
+	}
+	if (dst_len + i < size)
+		dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
+}
+
+static void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*cast_src;
+	unsigned char	*cast_dest;
+
+	cast_src = (unsigned char *)src;
+	cast_dest = (unsigned char *)dest;
+	while (n--)
+	{
+		*cast_dest = *cast_src;
+		cast_src++;
+		cast_dest++;
+	}
+	return (dest);
+}
+
+static void	*ft_calloc(size_t amount, size_t size)
+{
+	unsigned char	*ptr;
+	size_t			total;
+	size_t			i;
+
+	if (!amount || !size)
+		return (malloc(1));
+	total = amount * size;
+	if (total / amount != size)
+		return (NULL);
+	ptr = malloc(total);
+	if (!ptr)
+		return (0);
+	i = 0;
+	while (i < total)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
+}
 
 size_t	ft_strlen(const char *str)
 {
