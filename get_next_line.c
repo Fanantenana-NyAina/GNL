@@ -6,7 +6,7 @@
 /*   By: fananrak <fananrak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 10:04:42 by fananrak          #+#    #+#             */
-/*   Updated: 2026/03/31 10:32:26 by fananrak         ###   ########.fr       */
+/*   Updated: 2026/03/31 10:45:54 by fananrak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char    *get_next_line(int  fd)
     return (line);
 }
 
-char    *read_and_stash(int fd, char *stash)
+static char *read_and_stash(int fd, char *stash)
 {    
     char    *buffer;
     ssize_t nbytes;
@@ -46,7 +46,8 @@ char    *read_and_stash(int fd, char *stash)
     free(buffer);
     return (stash);
 }
-char    *extract_line(char *stash)
+
+static char *extract_line(char *stash)
 {
     char    *line;
     ssize_t i;
@@ -62,7 +63,8 @@ char    *extract_line(char *stash)
         line = ft_substr(stash, 0, i);
     return (line);
 }
-char    *update_leftover(char * stash)
+
+static char *update_leftover(char * stash)
 {    
     char    *leftover;
     ssize_t i;
