@@ -1,17 +1,16 @@
 #include "get_next_line.h"
 
-int main()
+int main(void)
 {
-    int fd = open("test.txt", O_RDONLY);
+    int     fd;
+    char    *line;
 
-    char    *res1 = get_next_line(fd);
-    printf("print first line: %s", res1);
-    char    *res2 = get_next_line(fd);
-    printf("print second line: %s", res2);
-    char    *res3 = get_next_line(fd);
-    printf("print third line: %s\n", res3);
-/*    char    *res4 = get_next_line(fd);
-    printf("is there last line ?: %s", res4);*/
+    fd = open("test.txt", O_RDONLY);
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("LINE: [%s]\n", line);
+        free(line);
+    }
     close(fd);
-    return 0;
+    return (0);
 }

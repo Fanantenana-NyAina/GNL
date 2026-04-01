@@ -169,4 +169,4 @@ Specifically it was used for:
 - Identifying logical errors in the read loop (missing EOF condition, missing `\n` check)
 - Understanding why a linked list approach is not suited for this project
 
-All code was written and understood by the student.
+All code was written and understood.
