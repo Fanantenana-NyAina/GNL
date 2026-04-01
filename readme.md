@@ -25,17 +25,17 @@ This project introduces a key concept in C programming: **static variables** —
 ### Compilation
 
 ```bash
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c <your_main.c>
 ```
 
 You can use any value for `BUFFER_SIZE`:
 
 ```bash
 # Small buffer
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=1 get_next_line.c get_next_line_utils.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=1 get_next_line.c get_next_line_utils.c <your_main.c>
 
 # Large buffer
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=9999 get_next_line.c get_next_line_utils.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=9999 get_next_line.c get_next_line_utils.c <your_main.c>
 
 # Without flag (uses default value defined in header)
 cc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c
@@ -53,18 +53,16 @@ cc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c
 
 ```c
 #include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
 
 int main(void)
 {
     int     fd;
     char    *line;
 
-    fd = open("file.txt", O_RDONLY);
+    fd = open("test.txt", O_RDONLY);
     while ((line = get_next_line(fd)) != NULL)
     {
-        printf("%s", line);
+        printf("LINE: [%s]\n", line);
         free(line);
     }
     close(fd);
