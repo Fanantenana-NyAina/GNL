@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fanantenana <fanantenana@student.42.fr>    +#+  +:+       +#+        */
+/*   By: fananrak <fananrak@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 10:04:42 by fananrak          #+#    #+#             */
-/*   Updated: 2026/04/01 08:25:17 by fanantenana      ###   ########.fr       */
+/*   Updated: 2026/04/01 15:19:33 by fananrak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static char	*update_leftover(char *stash)
 		return (NULL);
 	}
 	leftover = ft_substr(stash, i + 1, ft_strlen(stash) - i);
-	free(stash);  
+	free(stash);
 	return (leftover);
 }
 

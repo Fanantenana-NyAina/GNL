@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fanantenana <fanantenana@student.42.fr>    +#+  +:+       +#+        */
+/*   By: fananrak <fananrak@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 10:04:49 by fananrak          #+#    #+#             */
-/*   Updated: 2026/04/01 08:01:40 by fanantenana      ###   ########.fr       */
+/*   Updated: 2026/04/01 15:12:29 by fananrak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
