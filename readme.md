@@ -38,7 +38,7 @@ cc -Wall -Wextra -Werror -D BUFFER_SIZE=1 get_next_line.c get_next_line_utils.c 
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=9999 get_next_line.c get_next_line_utils.c <your_main.c>
 
 # Without flag (uses default value defined in header)
-cc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c
+cc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c <your_main.c>
 ```
 
 ### Files
